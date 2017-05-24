@@ -4,7 +4,7 @@ import subprocess
 from os.path import isfile, join, abspath
 from os import listdir
 
-SHOW_FREQ = True
+SHOW_FREQ = False
 stemNativeCLib = ctypes.CDLL('./stemlib/stmr.so')
 '''
 should be under of ./yourassignment/a3tester
@@ -24,13 +24,16 @@ class FileFreqPair:
             return self.fileName < other.fileName
 
 class A3Test:
+
     def __init__(self):
         self.PARENT_DIR = str(abspath('..'))
         self.TEST_FILE_DIR = self.PARENT_DIR + '/' + sys.argv[1]
         self.INDEX_DIR = self.PARENT_DIR + '/' + sys.argv[2]
         self.ORIGIN_TERM_LIST = sys.argv[3:len(sys.argv)]
         self.TERM_LIST = sys.argv[3:len(sys.argv)]
-        self.TERM_LIST = list(map(lambda x: x.lower(), self.TERM_LIST))  # covert all to lower cases
+        self.TERM_LIST = list(map(lambda x: x.lower(), self.TERM_LIST))
+
+    def go(self):
         self.stemTermList()
         self.wordFileFreqDic = {}
         self.wordMatchSet = {}  # key term value: the set which contains all file name that matches it
@@ -192,3 +195,5 @@ class A3Test:
 
 
 a3 = A3Test()
+# print(a3.stemAWord("protect"))
+a3.go()

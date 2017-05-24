@@ -784,21 +784,14 @@ stem(char *p, int index, int position) {
 
     if (k > k0) {
         step1c();
-//        step2();
-//        step3();
-//        step4();
-//        step5();
+        step2();
+        step3();
+        step4();
+        step5();
     }
 
     return k;
 }
-
-//int callStem(char * word) {
-//    int end = stem(word, 0, strlen(word) - 1);
-//    word[end + 1] = 0;
-//    printf("hello world %s \n", word);
-//    return 0;
-//}
 
 void callStemNative(char * word)
 {
