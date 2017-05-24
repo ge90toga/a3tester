@@ -4,7 +4,7 @@ import subprocess
 from os.path import isfile, join, abspath
 from os import listdir
 
-SHOW_FREQ = True
+SHOW_FREQ = False
 stemNativeCLib = ctypes.CDLL('./stemlib/stmr.so')
 '''
 should be under of ./yourassignment/a3tester
@@ -56,7 +56,7 @@ class A3Test:
         self.TERM_LIST = stemedList
 
     def readAllFiles(self):
-        print("RUNNING TEST SCRIPT'S SEARCH COULD BE A BIT SLOW...")
+        print("RUNNING TEST SCRIPT'S SEARCH, COULD BE A BIT SLOW...")
         textFiles = [f for f in listdir(self.TEST_FILE_DIR) if isfile(join(self.TEST_FILE_DIR, f))]
         for fileName in textFiles:
             filePath = join(self.TEST_FILE_DIR, fileName)
@@ -144,11 +144,14 @@ class A3Test:
 
     def writeScriptToFile(self, rankingTable):
         with open('script.out.txt', 'w') as file:
-            for pair in rankingTable:
-                if SHOW_FREQ:
-                    file.write("{0} {1}\n".format(pair.fileName, pair.fileFreq))
-                else:
-                    file.write("{0}\n".format(pair.fileName))
+            if len(rankingTable) == 0:
+                file.write("\n")
+            else:
+                for pair in rankingTable:
+                    if SHOW_FREQ:
+                        file.write("{0} {1}\n".format(pair.fileName, pair.fileFreq))
+                    else:
+                        file.write("{0}\n".format(pair.fileName))
 
     def writeA3ResultToFile(self, result):
         with open('cpp.out.txt', 'w') as file:
@@ -186,6 +189,5 @@ class A3Test:
                 return
 
         print("TEST PASSED")
-
 
 a3 = A3Test()

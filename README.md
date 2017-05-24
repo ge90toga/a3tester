@@ -29,6 +29,7 @@ Please DONT'T add './' for your index and text directory. If your have the above
 python3 a3tester.py testfiles/booknmail index "david" "tim"
 python3 a3tester.py testfiles/books200m index1 "apple" "banana" "rock"
 python3 a3tester.py testfiles/simple index2 "Apple" "iNvestor"
+python3 a3tester.py testfiles/legal2 index-legal2 "penalty" "protect"
 ```
 
 ### NOTE:
