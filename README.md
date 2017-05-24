@@ -6,7 +6,7 @@ stem the word by calling calling a C stemming program. And if the word matches o
 - After finishing the slow word by word search, it will call your c/c++ program, do a 100% string comparison against its own.
 
 - it also saves your result `cpp.out.txt` and its own result `script.out.txt` for reference.
-
+- The global var `SHOW_FREQ` is set to output extra total couting info, set to false before you run it!.
 ### HOW TO USE
 (1) create a directory called `a3tester` in your assignment directory and clone the project into that directory. The structure would be like:
 ```
