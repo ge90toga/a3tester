@@ -77,7 +77,7 @@ isConsonant(int index) {
             return (index == k0) ? TRUE : !isConsonant(index - 1);
         default:
             return TRUE;
-   }
+    }
 }
 
 /**
@@ -111,9 +111,9 @@ getMeasure() {
         }
 
         index++;
-   }
+    }
 
-   index++;
+    index++;
 
     while (TRUE) {
         while (TRUE) {
@@ -199,21 +199,21 @@ cvc(int index) {
     int character;
 
     if (
-        index < k0 + 2 ||
-        !isConsonant(index) ||
-        isConsonant(index - 1) ||
-        !isConsonant(index - 2)
-    ) {
+            index < k0 + 2 ||
+            !isConsonant(index) ||
+            isConsonant(index - 1) ||
+            !isConsonant(index - 2)
+            ) {
         return FALSE;
     }
 
     character = b[index];
 
     if (
-        character == 'w' ||
-        character == 'x' ||
-        character == 'y'
-    ) {
+            character == 'w' ||
+            character == 'x' ||
+            character == 'y'
+            ) {
         return FALSE;
     }
 
@@ -321,9 +321,9 @@ step1ab() {
             k--;
         }
     } else if (
-        (ends("\02" "ed") || ends("\03" "ing")) &&
-        vowelInStem()
-    ) {
+            (ends("\02" "ed") || ends("\03" "ing")) &&
+            vowelInStem()
+            ) {
         k = j;
 
         if (ends("\02" "at")) {
@@ -338,10 +338,10 @@ step1ab() {
             character = b[k];
 
             if (
-                character == 'l' ||
-                character == 's' ||
-                character == 'z'
-            ) {
+                    character == 'l' ||
+                    character == 's' ||
+                    character == 'z'
+                    ) {
                 k++;
             }
         } else if (getMeasure() == 1 && cvc(k)) {
@@ -521,10 +521,10 @@ step2() {
             }
 
             break;
-       /**
-        * DEPARTURE:
-        * To match the published algorithm, delete this line.
-        */
+            /**
+             * DEPARTURE:
+             * To match the published algorithm, delete this line.
+             */
         case 'g':
             if (ends("\04" "logi")) {
                 replace("\03" "log");
@@ -661,10 +661,10 @@ step4() {
             return;
         case 'o':
             if (
-                ends("\03" "ion") &&
-                j >= k0 &&
-                (b[j] == 's' || b[j] == 't')
-            ) {
+                    ends("\03" "ion") &&
+                    j >= k0 &&
+                    (b[j] == 's' || b[j] == 't')
+                    ) {
                 break;
             }
 
@@ -784,10 +784,10 @@ stem(char *p, int index, int position) {
 
     if (k > k0) {
         step1c();
-        step2();
-        step3();
-        step4();
-        step5();
+//        step2();
+//        step3();
+//        step4();
+//        step5();
     }
 
     return k;

@@ -4,7 +4,7 @@ import subprocess
 from os.path import isfile, join, abspath
 from os import listdir
 
-SHOW_FREQ = False
+SHOW_FREQ = True
 stemNativeCLib = ctypes.CDLL('./stemlib/stmr.so')
 '''
 should be under of ./yourassignment/a3tester
@@ -180,7 +180,7 @@ class A3Test:
         with open('script.out.txt') as scriptResultFile:
             pyResult = scriptResultFile.read().split(sep='\n')
         if len(cppReuslt) != len(pyResult):
-            print("THE RESULT COUNT IS NOT THE SAME C/C++ GOT: {0} SCRIPT GOT: {1}")
+            print("THE RESULT COUNT IS NOT THE SAME C/C++ GOT: {0} SCRIPT GOT: {1}".format(len(cppReuslt),len(pyResult)))
             return
         for lineNum in range(len(cppReuslt)):
             if cppReuslt[lineNum] != pyResult[lineNum]:
@@ -189,5 +189,6 @@ class A3Test:
                 return
 
         print("TEST PASSED")
+
 
 a3 = A3Test()
