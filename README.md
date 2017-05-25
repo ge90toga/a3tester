@@ -24,7 +24,8 @@ YOUR-ASSIGNMENT-DIR
 (3) To conduct test, run the following command `python3 a3tester.py <testfilePath> <indexPath> "term1" "term2"`.
 
 Please DONT'T add './' for your index and text directory. If your have the above folder structure and say your
-<your-test-dir> is "testfiles", your index directory is "index". Run following:
+<your-test-dir> is "testfiles", your index directory is "index". Here Are some example testcases I used, you can also
+pick any word you want to search.
 ```
 python3 a3tester.py testfiles/booknmail booknmail.idx "david" "tim"
 python3 a3tester.py testfiles/books200m 200m.idx "apple" "banana" "rock"
