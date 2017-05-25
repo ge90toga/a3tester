@@ -33,8 +33,12 @@ python3 a3tester.py testfiles/legal2 index-legal2 "penalty" "protect"
 python3 a3tester.py testfiles/legal1 index-legal1 "penalty" "protect"
 python3 a3tester.py testfiles/legal1 index-legal1 "appeal" "sue" "law"
 python3 a3tester.py testfiles/books200m 200m.idx "ebook" "apple" "pear" "banana"
+python3 a3tester.py testfiles/books200m 200m.idx "faTher" "Daughter" "Friend" "wife" "son"
 ```
 
 ### NOTE:
-
+(1) This testing script seems only works on linux.
+(2) This testing for now only assumes 100% strict match against its own
+(3) If you find any testing failure reported by script the most likely reason is 
+your stemming role differs. Do check the cpp.out.txt vs script.out.txt for help.
 This test does not guarantee any correctness whatsoever, use it as your your discretion.
